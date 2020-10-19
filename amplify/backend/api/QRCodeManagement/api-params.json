@@ -1,0 +1,64 @@
+{
+    "paths": [
+        {
+            "name": "/create",
+            "lambdaFunction": "CreateQRCode",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH"
+                ]
+            }
+        },
+        {
+            "name": "/delete",
+            "lambdaFunction": "RemoveQRCode",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "QRCodeManagement",
+    "apiName": "QRCodeManagement",
+    "functionArns": [
+        {
+            "lambdaFunction": "CreateQRCode"
+        },
+        {
+            "lambdaFunction": "RemoveQRCode"
+        }
+    ],
+    "privacy": {
+        "auth": 2,
+        "unauth": 0,
+        "authRoleName": "amplify-safespot-dev-110326-authRole",
+        "unAuthRoleName": "amplify-safespot-dev-110326-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "CreateQRCode",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "RemoveQRCode",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

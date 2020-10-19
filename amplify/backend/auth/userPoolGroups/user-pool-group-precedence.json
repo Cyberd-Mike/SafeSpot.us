@@ -1,0 +1,22 @@
+[
+    {
+        "groupName": "public",
+        "precedence": 1
+    },
+    {
+        "groupName": "SpotEmployees",
+        "precedence": 2
+    },
+    {
+        "groupName": "SpotAdmins",
+        "precedence": 3
+    },
+    {
+        "groupName": "HelpDesk",
+        "precedence": 4
+    },
+    {
+        "groupName": "Administrators",
+        "precedence": 5
+    }
+]

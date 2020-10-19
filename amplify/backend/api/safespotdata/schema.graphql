@@ -1,0 +1,87 @@
+type Business @model
+@key(name: "byBusinessName", fields: ["name", "id"], queryField: "BusinessByName")
+@key(name: "byURL", fields: ["customURL"], queryField: "BusinessbyURL")
+@auth(rules: [
+    { allow: owner },
+    { allow: groups, groups: ["Administrators", "Helpdesk", "SpotAdmins"]}
+    { allow: public, operations: [ read ] },
+])
+{
+	id: ID!
+	name: String!
+    customURL: String!
+	about: String!
+	instructions: String
+	hours: BusinessHours!
+	guestLimit: String!
+	coverImage: String
+	logoImage: String
+    qrCode: String
+	managerID: ID!
+	manager: Manager @connection(fields: ["managerID"])
+	employees: [Employee] @connection(keyName: "byBusiness", fields: ["id"])
+    customers: [Customer] @connection(keyName: "byBusiness", fields: ["id"])
+}
+
+type Manager @model
+@key(name: "byName", fields: ["name"])
+@key(name: "byPhone", fields: ["phoneNumber"])
+@auth(rules: [
+    { allow: owner },
+    { allow: groups, groups: ["Administrators", "Helpdesk", "SpotAdmins"] }
+])
+{
+    id: ID!
+    name: String
+    phoneNumber: String!
+    emailAddress: String!
+    role: String
+    stripeID: ID!
+    cognitoID: ID!
+	employees: [Employee] @connection(keyName: "byManager", fields: ["id"])
+}
+
+type Employee @model
+@key(name: "byBusiness", fields: ["storeID"])
+@key(name: "byManager", fields: ["managerID"])
+@auth(rules: [
+    { allow: owner },
+    { allow: groups, groups: ["Administrators", "Helpdesk", "SpotAdmins"] }
+])
+{
+	id: ID!
+	cognitoID: ID!
+	managerID: ID!
+	storeID: ID!
+}
+
+type BusinessHours {
+    MondayOpen: String
+    MondayClose: String 
+    TuesdayOpen: String 
+    TuesdayClose: String 
+    WednesdayOpen: String 
+    WednesdayClose: String
+    ThursdayOpen: String
+    ThursdayClose: String
+    FridayOpen: String
+    FridayClose: String
+    SaturdayOpen: String
+    SaturdayClose: String
+    SundayOpen: String
+    SundayClose: String
+}
+
+type Customer @model
+@key(name: "byBusiness", fields: ["businessID"])
+@auth( rules: [
+    { allow: owner },
+    { allow: groups, groups: ["Administrators", "Helpdesk", "SpotAdmins", "SpotEmployee" ], operations: [ create, read, update ]},
+])
+{
+    id: ID!
+    name: String!
+    businessID: ID!
+    phone: String
+    email: String
+}

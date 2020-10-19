@@ -1,0 +1,17 @@
+{
+    "permissions": {
+        "api": {
+            "safespotdata": [
+                "update",
+                "delete"
+            ]
+        },
+        "storage": {
+            "Storage": [
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}

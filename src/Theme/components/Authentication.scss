@@ -1,0 +1,41 @@
+.Background_Square{
+    top: 0px;
+    right: 0px;
+}
+
+.Background{
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    position: fixed;
+    background-position-y: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    transform: rotate(25deg) translate(58%, 0) scale(2.5);
+}
+.AuthContainer {
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+#AuthPaper {
+    background-color: transparent;
+}
+
+#Logo{
+    transform: scale(.333333);
+}
+
+#credentialsBox {
+    margin: 0 auto;
+}
+
+#actionBox {
+    margin-top: 10%;
+    color: white;
+}

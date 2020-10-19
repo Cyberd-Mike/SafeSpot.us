@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-safespot-dev-110326-authRole",
+            "UnauthRoleArn": "arn:aws:iam::752297506265:role/amplify-safespot-dev-110326-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::752297506265:role/amplify-safespot-dev-110326-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-safespot-dev-110326-deployment",
+            "UnauthRoleName": "amplify-safespot-dev-110326-unauthRole",
+            "StackName": "amplify-safespot-dev-110326",
+            "StackId": "arn:aws:cloudformation:us-west-2:752297506265:stack/amplify-safespot-dev-110326/90b630b0-e0ab-11ea-95ef-02e40fd26800",
+            "AmplifyAppId": "d36otbprfxzcvw"
+        },
+        "categories": {
+            "auth": {
+                "SafeSpotAuth": {}
+            }
+        }
+    }
+}

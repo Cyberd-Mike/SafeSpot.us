@@ -1,0 +1,89 @@
+{
+    "paths": [
+        {
+            "name": "/paymentmethods",
+            "lambdaFunction": "StripePaymentMethods",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH"
+                ]
+            }
+        },
+        {
+            "name": "/customer",
+            "lambdaFunction": "StripeCustomerManagement",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH"
+                ]
+            }
+        },
+        {
+            "name": "/subscription",
+            "lambdaFunction": "StripeSubscription",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "Stripe",
+    "apiName": "Stripe",
+    "functionArns": [
+        {
+            "lambdaFunction": "StripePaymentMethods"
+        },
+        {
+            "lambdaFunction": "StripeCustomerManagement"
+        },
+        {
+            "lambdaFunction": "StripeSubscription"
+        }
+    ],
+    "privacy": {
+        "auth": 3,
+        "unauth": 0,
+        "authRoleName": "amplify-safespot-dev-110326-authRole",
+        "unAuthRoleName": "amplify-safespot-dev-110326-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "StripePaymentMethods",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "StripeCustomerManagement",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "StripeSubscription",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
